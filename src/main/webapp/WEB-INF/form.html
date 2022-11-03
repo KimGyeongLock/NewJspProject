@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <style>
+        #left {
+            position: relative;
+            left: 20px;
+            top: 0px;
+            float: left;
+        }
+
+        #center {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            right: 90px;
+            padding: 20px;
+        }
+
+        #center h1 {
+            margin-bottom: 50px;
+        }
+
+        #center h2 {
+            text-align: center;
+            margin-bottom: -20px;
+        }
+
+        #right {
+            right: -70px;
+            top: 20px;
+            position: absolute;
+        }
+
+        #img {
+            right: -20px;
+            top: 0;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        #file {
+            right: 7px;
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+<form action="form_ok.jsp" method="post" enctype="multipart/form-data">
+    <div id="header">
+        <div id="left">
+            <img src="cra.png" width="150" height="150" alt="이미지가 없습니다.">
+        </div>
+        <div id="center">
+            <h1>23학년도 CRA Recruiting</h1>
+            <h2>APPLICATION FORM</h2>
+        </div>
+        <div id="right">
+            <div id="img">
+                <img src="profile.png" width="100" height="100" alt="이미지가 없습니다.">
+            </div>
+            <div id="file">
+                <input type="file" id="imgFile" name="imgFile" accept="image/*" onchange="loadFile(this)"><br>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <fieldset>
+        <legend>인적사항</legend>
+        <label for="name">이름: </label><br>
+        <input type="text" id="name" name="name" placeholder="예) 홍길동">
+        <br><br>
+        성별: <br>
+        <input type="radio" id="man" name="gender" value="남">
+        <label for="man">남</label>
+        <input type="radio" id="woman" name="gender" value="여">
+        <label for="woman">여</label>
+        <br><br>
+        <label for="number">학번: </label><br>
+        <input type="text" id="number" name="number" placeholder="예) 22300001">
+        <br><br>
+        <label for="phone">휴대폰 번호: </label><br>
+        <input type="tel" id="phone" name="phone" placeholder="010-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+               required>
+        <br><br>
+        <label for="email">이메일: </label><br>
+        <input type="email" id="email" name="email" placeholder="2230001@handong.ac.kr">
+        <br><br>
+        전공: <br>
+        <input type="checkbox" id="computer1" name="major[]" value="컴퓨터공학심화">
+        <label for="computer1">컴퓨터공학심화</label>
+        <input type="checkbox" id="computer2" name="major[]" value="컴퓨터공학">
+        <label for="computer2">컴퓨터공학</label><br>
+        <input type="checkbox" id="electronic1" name="major[]" value="전자공학심화">
+        <label for="electronic1">전자공학심화</label>
+        <input type="checkbox" id="electronic2" name="major[]" value="전자공학">
+        <label for="electronic2">전자공학</label><br>
+        <input type="checkbox" id="ict" name="major[]" value="ICT 창업학부">
+        <label for="ict">ICT 창업학부</label>
+        <input type="checkbox" id="global" name="major[]" value="글로벌리더십학부">
+        <label for="global">글로벌리더십학부</label><br>
+        <input type="checkbox" id="cotents" name="major[]" value="콘텐융합디자인학부">
+        <label for="cotents">콘텐융합디자인학부</label>
+        <br><br>
+        <label for="semester">23-1 기준 학기수: </label><br>
+        <select id="semester" name="semester">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8학기 이상">8학기 이상</option>
+        </select>
+        <br><br>
+        <label for="birthday">생년월일: </label><br>
+        <input type="date" id="birthday" name="birthday">
+        <br>
+    </fieldset>
+    <br>
+    지원유형:<br>
+    <input type="radio" id="normal" name="type" value="일반회원">
+    <label for="normal">일반회원</label>
+    <input type="radio" id="designer" name="type" value="디자이너">
+    <label for="designer">디자이너</label>
+    <br><br>
+    자기 PR: <br>
+    <textarea name="pr" rows="10" cols="30"></textarea>
+    <br><br>
+    <input type="submit" value="제출">
+</form>
+</body>
+<script>
+    function loadFile(input) {
+        var file = input.files[0];
+        var name = document.getElementById('fileName');
+        name.textContent = file.name;
+        var newImage = document.createElement("img");
+        newImage.setAttribute("class", 'img');
+        newImage.src = URL.createObjectURL(file);
+
+        newImage.style.width = "70%";
+        newImage.style.height = "70%";
+        newImage.style.visibility = "hidden";
+        newImage.style.objectFit = "contain";
+        var container = document.getElementById('image-show');
+        container.appendChild(newImage);
+    };
+</script>
+</html>

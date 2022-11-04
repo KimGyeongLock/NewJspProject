@@ -9,6 +9,7 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="hello-servlet">Hello Servlet</a><br/><br/>
+<a href="form.html">CRA Form</a>
 </body>
 </html>

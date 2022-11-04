@@ -29,13 +29,15 @@
         }
 
         #right {
-            right: -70px;
+            width: 100px;
+            right: 70px;
             top: 20px;
             position: absolute;
         }
 
         #img {
-            right: -20px;
+            width: 100px;
+            right: 0px;
             top: 0;
             position: relative;
             margin-bottom: 15px;
@@ -49,10 +51,10 @@
     </style>
 </head>
 <body>
-<form action="form_ok.jsp" method="post" enctype="multipart/form-data">
+<form action="form_ok.jsp" method="post">
     <div id="header">
         <div id="left">
-            <img src="../../resources/cra.png" width="150" height="150" alt="이미지가 없습니다.">
+            <img src="img/cra.png" width="150" height="150" alt="이미지가 없습니다.">
         </div>
         <div id="center">
             <h1>23학년도 CRA Recruiting</h1>
@@ -60,10 +62,10 @@
         </div>
         <div id="right">
             <div id="img">
-                <img src="../../resources/profile.png" width="100" height="100" alt="이미지가 없습니다.">
+                <img src="img/profile.png" width="100" height="100" alt="이미지가 없습니다.">
             </div>
             <div id="file">
-                <input type="file" id="imgFile" name="imgFile" accept="image/*" onchange="loadFile(this)"><br>
+                <input type="file" id="imgFile" name="imgFile" accept="image/*" onchange="loadFile(this)" style="width: 160px;"><br>
             </div>
         </div>
     </div>
@@ -90,19 +92,19 @@
         <input type="email" id="email" name="email" placeholder="2230001@handong.ac.kr">
         <br><br>
         전공: <br>
-        <input type="checkbox" id="computer1" name="major[]" value="컴퓨터공학심화">
+        <input type="checkbox" id="computer1" name="major" value="컴퓨터공학심화">
         <label for="computer1">컴퓨터공학심화</label>
-        <input type="checkbox" id="computer2" name="major[]" value="컴퓨터공학">
+        <input type="checkbox" id="computer2" name="major" value="컴퓨터공학">
         <label for="computer2">컴퓨터공학</label><br>
-        <input type="checkbox" id="electronic1" name="major[]" value="전자공학심화">
+        <input type="checkbox" id="electronic1" name="major" value="전자공학심화">
         <label for="electronic1">전자공학심화</label>
-        <input type="checkbox" id="electronic2" name="major[]" value="전자공학">
+        <input type="checkbox" id="electronic2" name="major" value="전자공학">
         <label for="electronic2">전자공학</label><br>
-        <input type="checkbox" id="ict" name="major[]" value="ICT 창업학부">
+        <input type="checkbox" id="ict" name="major" value="ICT 창업학부">
         <label for="ict">ICT 창업학부</label>
-        <input type="checkbox" id="global" name="major[]" value="글로벌리더십학부">
+        <input type="checkbox" id="global" name="major" value="글로벌리더십학부">
         <label for="global">글로벌리더십학부</label><br>
-        <input type="checkbox" id="cotents" name="major[]" value="콘텐융합디자인학부">
+        <input type="checkbox" id="cotents" name="major" value="콘텐융합디자인학부">
         <label for="cotents">콘텐융합디자인학부</label>
         <br><br>
         <label for="semester">23-1 기준 학기수: </label><br>
@@ -150,5 +152,6 @@
         var container = document.getElementById('image-show');
         container.appendChild(newImage);
     };
+
 </script>
 </html>
